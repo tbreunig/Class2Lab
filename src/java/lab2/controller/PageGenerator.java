@@ -32,31 +32,40 @@ public class PageGenerator extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-            
+
             out.println("<head>");
             out.println("<title>Class 2 Lab</title>");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             out.println("<style>");
-            out.println("table, td {margin:20px; padding:3px; border-color:orange; color:black;}");
-            out.println("table {display:inline-table;}");
-            out.println("th {background-color:#FFCC66;}");
-            out.println("h2 {text-decoration: underline; text-align: center; letter-spacing:3px;}");
-            out.println("#mainDiv{border:1px solid black; padding:25px; border-radius:10px;}");
+            out.println("table, td {padding:3px; margin:10% 10%; border-color:darkRed; color:black; position:relative:}");
+            out.println("th {background-color:gold;}");
+            out.println("h2, h3 {text-decoration:underline; text-align:center; letter-spacing:3px;}");
+            out.println("#containerDiv{border:5px ridge crimson; border-radius:10px; padding:25px; width:40%; position:relative; left:350px;}");
+            out.println("#singleCntDiv{border:3px groove coral; border-radius:10px; width:40%; position:relative; left:14   0px;}");
+            //display:inline-block;
+            //display:inline-block;
+            //display:inline-block;
+            
+            //out.println("#evenCntDiv{border:1px solid red; width:31%; position:absolute; float:left; }");
+            //out.println("#oddCntDiv{border:1px solid blue; width:31%; position:absolute; float:left; }");
             out.println("</style>");
             out.println("</head>");
-            
+
             out.println("<body>");
             out.println("<h2>Practice webpage with \"out.println();\" statements</h2>");
             //Start of main container DIV
-            out.println("<div id=\"mainDiv\">");
-            
+            out.println("<div id=\"containerDiv\">");
+
             //TABLE #1 - MULTIPLICATION BY SINGLE COUNT
-            out.println("<div class=\"tableDivs\">");
+            out.println("<div id=\"singleCntDiv\">");
+            //Printline below is used for testing purposes
+//            out.println("This is a div");
             out.println("<table border=1>");
-//            out.println("<h3>Single count </h3>");
-            out.println("<tr><th colspan=\"5\">•Multiplication Table•</th></tr>");
+            out.println("<h3>Multiplication Table</h3>");
+            out.println("<tr><th colspan=\"5\">•Single Count•</th></tr>");
             for (int r = 1; r <= 5; r++) {
                 out.println("<tr>");
                 for (int c = 1; c <= 5; c++) {
@@ -72,56 +81,58 @@ public class PageGenerator extends HttpServlet {
                 out.println("</tr");
             }
             out.println("</table>");
-             //End of single count table div
+            //End of single count table div
             out.println("</div>");
-            
+
             //TABLE #2 - MULTIPLICATION BY EVEN COUNT
-            out.println("<div class=\"tableDivs\">");
-            out.println("<table border=1>");
-//            out.println("<h3>Even Count</h3>");
-            out.println("<tr><th colspan=\"5\">•Multiplication Table•</th></tr>");
-            for (int r = 1; r <= 5; r++) {
-                out.println("<tr>");
-                for (int c = 1; c <= 5; c++) {
-                    int val = r * c;
-                    out.println("<td>");
-                    if (val < 10) {
-                        out.println("&nbsp&nbsp&nbsp" + val);
-                    } else if (val <= 25) {
-                        out.println("&nbsp" + val);
-                    }
-                    out.println("</td>");
-                }
-                out.println("</tr");
-            }
-            out.println("</table>");
-             //End of EVEN count table div
-            out.println("</div>");
-            
-             //TABLE #2 - MULTIPLICATION BY ODD COUNT
-            out.println("<div class=\"tableDivs\">");
-            out.println("<table border=1>");
+//            out.println("<div id=\"evenCntDiv\">");
+//            out.println("This is a div");
+//            out.println("<table border=1>");
+////            out.println("<h3>Even Count</h3>");
+//            out.println("<tr><th colspan=\"5\">•Multiplication Table•</th></tr>");
+//            for (int r = 1; r <= 5; r++) {
+//                out.println("<tr>");
+//                for (int c = 1; c <= 5; c++) {
+//                    int val = r * c;
+//                    out.println("<td>");
+//                    if (val < 10) {
+//                        out.println("&nbsp&nbsp&nbsp" + val);
+//                    } else if (val <= 25) {
+//                        out.println("&nbsp" + val);
+//                    }
+//                    out.println("</td>");
+//                }
+//                out.println("</tr");
+//            }
+//            out.println("</table>");
+//            //End of EVEN count table div
+//            out.println("</div>");
+////
+////            //TABLE #3 - MULTIPLICATION BY ODD COUNT
+//            out.println("<div id=\"oddCntDiv\">");
+//            out.println("This is a div");
+//            out.println("<table border=1>");
 //            out.println("<h3>Odd Count</h3>");
-            out.println("<tr><th colspan=\"5\">•Multiplication Table•</th></tr>");
-            for (int r = 1; r <= 5; r++) {
-                out.println("<tr>");
-                for (int c = 1; c <= 5; c++) {
-                    int val = r * c;
-                    out.println("<td>");
-                    if (val < 10) {
-                        out.println("&nbsp&nbsp&nbsp" + val);
-                    } else if (val <= 25) {
-                        out.println("&nbsp" + val);
-                    }
-                    out.println("</td>");
-                }
-                out.println("</tr");
-            }
-            out.println("</table>");
-            //End of ODD count table div
-            out.println("</div>");
-            
-            //End of main container DIV
+//            out.println("<tr><th colspan=\"5\">•Multiplication Table•</th></tr>");
+//            for (int r = 1; r <= 5; r++) {
+//                out.println("<tr>");
+//                for (int c = 1; c <= 5; c++) {
+//                    int val = r * c;
+//                    out.println("<td>");
+//                    if (val < 10) {
+//                        out.println("&nbsp&nbsp&nbsp" + val);
+//                    } else if (val <= 25) {
+//                        out.println("&nbsp" + val);
+//                    }
+//                    out.println("</td>");
+//                }
+//                out.println("</tr");
+//            }
+//            out.println("</table>");
+//            //End of ODD count table div
+//            out.println("</div>");
+//
+////            End of main container DIV
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");
