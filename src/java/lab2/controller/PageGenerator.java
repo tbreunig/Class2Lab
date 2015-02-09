@@ -40,11 +40,11 @@ public class PageGenerator extends HttpServlet {
             out.println("<title>Class 2 Lab</title>");
             out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             out.println("<style>");
-            out.println("table, td {padding:3px; margin:10% 10%; border-color:darkRed; color:black; position:relative:}");
+            out.println("table, td {padding:3px; margin:10% 10%; border-color:darkRed; color:black; position:relative;}");
             out.println("th {background-color:gold;}");
             out.println("h2, h3 {text-decoration:underline; text-align:center; letter-spacing:3px;}");
             out.println("#containerDiv{border:5px ridge crimson; border-radius:10px; padding:25px; width:40%; position:relative; left:350px;}");
-            out.println("#singleCntDiv{border:3px groove coral; border-radius:10px; width:40%; position:relative; left:14   0px;}");
+            out.println("#singleCntDiv{border:3px groove coral; border-radius:10px; width:40%; position:relative; left:130px;}");
             //display:inline-block;
             //display:inline-block;
             //display:inline-block;
