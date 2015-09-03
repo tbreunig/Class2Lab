@@ -20,7 +20,7 @@ import lab4.model.WelcomeService;
  *
  * @author Tyler
  */
-@WebServlet(name = "WelcomeServiceController", urlPatterns = {"/WelcomeServiceController"})
+@WebServlet(name = "WelcomeServiceController", urlPatterns = {"/greeter"})
 public class WelcomeServiceController extends HttpServlet {
 
     private static final String RESULT_PAGE = "result.jsp";

@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,7 +68,7 @@ public class WelcomeService {
     }
 
     public final String getSalutation(String name) {
-        String salutation = "Hello, " + name + "!" + " The time is now "
+        String salutation = "Greetings, " + name + "!" + " The time is now "
                 + timeStamp + "." + " It's a wonderful "
                 + calculateTimeOfDay() + "!";
 
@@ -81,14 +82,53 @@ public class WelcomeService {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.dateAndTime);
+        hash = 97 * hash + Objects.hashCode(this.timeStamp);
+        hash = 97 * hash + Objects.hashCode(this.timeOfDay);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final WelcomeService other = (WelcomeService) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.dateAndTime, other.dateAndTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.timeStamp, other.timeStamp)) {
+            return false;
+        }
+        if (!Objects.equals(this.timeOfDay, other.timeOfDay)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "WelcomeService{" + "name=" + name + ", dateAndTime=" + dateAndTime + ", timeStamp=" + timeStamp + ", timeOfDay=" + timeOfDay + '}';
+    }
+
     /*
-    //Method for testing purposes
-    public static void main(String[] args) {
-        WelcomeService ws = new WelcomeService();
-        Object obj = ws.getDateAndTime();
-        String t = obj.toString();
-        System.out.println(ws.getSalutation("Tyler"));
-    }
-*/
-    }
+     //Method for testing purposes
+     public static void main(String[] args) {
+     WelcomeService ws = new WelcomeService();
+     Object obj = ws.getDateAndTime();
+     String t = obj.toString();
+     System.out.println(ws.getSalutation("Tyler"));
+     }
+     */
+}
