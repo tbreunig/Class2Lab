@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
  */
 public class WelcomeService {
 
+    private String name;
     private Date dateAndTime;
     private String timeStamp;
     private String timeOfDay = "";
@@ -73,6 +74,14 @@ public class WelcomeService {
         return salutation;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     //Method for testing purposes
     public static void main(String[] args) {
         WelcomeService ws = new WelcomeService();

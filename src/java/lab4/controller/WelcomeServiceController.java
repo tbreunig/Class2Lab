@@ -7,11 +7,14 @@ package lab4.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lab4.model.WelcomeService;
 
 /**
  *
@@ -19,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "WelcomeServiceController", urlPatterns = {"/WelcomeServiceController"})
 public class WelcomeServiceController extends HttpServlet {
+
+    private static final String RESULT_PAGE = "result.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,18 +37,16 @@ public class WelcomeServiceController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet WelcomeServiceController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet WelcomeServiceController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+
+        String name = request.getParameter("name");
+        request.setAttribute("name", name);
+
+        WelcomeService ws = new WelcomeService();
+        String date = ws.calculateTimeOfDay();
+        request.setAttribute("dateAndTime", date);
+
+        RequestDispatcher view = request.getRequestDispatcher(RESULT_PAGE);
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
