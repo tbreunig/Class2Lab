@@ -82,6 +82,7 @@ public class WelcomeService {
         this.name = name;
     }
     
+    /*
     //Method for testing purposes
     public static void main(String[] args) {
         WelcomeService ws = new WelcomeService();
@@ -89,4 +90,5 @@ public class WelcomeService {
         String t = obj.toString();
         System.out.println(ws.getSalutation("Tyler"));
     }
-}
+*/
+    }
