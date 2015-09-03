@@ -42,8 +42,8 @@ public class WelcomeServiceController extends HttpServlet {
         request.setAttribute("name", name);
 
         WelcomeService ws = new WelcomeService();
-        String date = ws.calculateTimeOfDay();
-        request.setAttribute("dateAndTime", date);
+       /* String date = ws.calculateTimeOfDay();
+        request.setAttribute("dateAndTime", date);*/
         
         String salutation = ws.getSalutation(name);
         request.setAttribute("salutation", salutation);
