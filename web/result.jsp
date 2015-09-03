@@ -17,8 +17,7 @@
         <title>Results!</title>
     </head>
     <body>
-        <p> Greetings ${name}! The time is now: ${salutation}.
-        
-
+        <p> Greetings ${name}! The time is now: ${salutation}.</p>
+       
     </body>
 </html>
